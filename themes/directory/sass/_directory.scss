@@ -2,3 +2,30 @@ li.views-fluid-grid-item {
   background-color: inherit;
   border: none;
 }
+
+.page-iarc {
+  .ctools-auto-submit-full-form {
+    margin-bottom: 2em;
+  }
+  .views-fluid-grid-item {
+    margin-right: 2em;
+  }
+  .field-name-title-field {
+    margin-top: 0.5em;
+    font-size: 1.2em;
+  }
+  .field-name-field-position {
+    margin-bottom: 0.5em;
+    font-style: italic;
+  }
+}
+
+.page-node.node-type-person {
+  .field-name-title-field {
+    margin-top: 0.5em;
+    font-size: 1.5em;
+  }
+  .field-name-field-photo {
+    margin: 1.5em 0;
+  }
+}
