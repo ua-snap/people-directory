@@ -9802,3 +9802,9 @@ body.navbar-tray-open.navbar-vertical.navbar-fixed {
 #navbar-administration.navbar-oriented .navbar-tray-vertical {
   width: 24rem;
 }
+
+/* line 1, ../sass/_directory.scss */
+li.views-fluid-grid-item {
+  background-color: inherit;
+  border: none;
+}
