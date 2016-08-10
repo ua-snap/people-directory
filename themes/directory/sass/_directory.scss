@@ -1,21 +1,28 @@
-li.views-fluid-grid-item {
-  background-color: inherit;
-  border: none;
-}
-
 .page-iarc {
+  .page-header {
+    display: none;
+  }
   .ctools-auto-submit-full-form {
     margin-bottom: 2em;
   }
+  li.views-fluid-grid-item {
+    background-color: inherit;
+    border: none;
+  }
+  .views-fluid-grid h3 {
+    text-align: left;
+    margin-top: 0.25em;
+  }
   .views-fluid-grid-item {
     padding: 0;
-    margin-right: 2em;
+    margin-right: 1.8em;
+    margin-bottom: 1em;
   }
-  .field-name-title-field {
+  .views-field-title {
     margin-top: 0.5em;
     font-size: 1.2em;
   }
-  .field-name-field-position {
+  .views-field-field-iarc-position {
     margin-bottom: 0.5em;
     font-style: italic;
   }
@@ -29,12 +36,20 @@ li.views-fluid-grid-item {
   .field-name-field-photo {
     margin-bottom: 1.5em;
   }
-  .group-left-side {
+  .field-name-field-research-area {
+    margin-bottom: 0.75em;
+  }
+  .group-left {
     font-size: 1.1em;
     margin-top: 1.2em;
+    .field-name-field-linkedin {
+      margin-top: 1em;
+    }
   }
-  .group-right-side {
+  .group-right {
     font-size: 1.2em;
-    margin-top: 1.2em;
+    .field-name-body {
+      margin-top: 1.2em;
+    }
   }
 }
