@@ -120,13 +120,13 @@
                 </div>
               <?php endif; ?>
               <?php $edir_location = $node->field_edir_name['und'][0]['entity']->field_location; ?>
-              <?php if (!empty($edit_location)): ?>
+              <?php if (!empty($edir_location)): ?>
               <div class="field field-name-field-location field-type-text field-label-inline clearfix">
                 <div class="field-label">
                   Location:&nbsp;
                 </div>
                 <div class="field-items">
-                  <?php print $edit_location['und'][0]['value']; ?>
+                  <?php print $edir_location['und'][0]['value']; ?>
                 </div>
               </div>
               <?php endif; ?>
