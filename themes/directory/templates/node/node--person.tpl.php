@@ -164,11 +164,7 @@
             </div>
           <?php endif; ?>
         <?php endif; ?>
-        <?php if (!empty($node->field_research_area)): ?>
-          <div class="field field-name-field-research-area field-type-text field-label-hidden">
-            <?php print render($content['field_research_area']); ?>
-          </div>
-        <?php endif; ?>
+        <?php print render($content['field_expertise']); ?>
         <?php print render($content['group_publications']); ?>
         <?php if (!empty($node->field_edir_name)): ?>
           <?php $edir_biography = $node->field_edir_name['und'][0]['entity']->field_biography; ?>
