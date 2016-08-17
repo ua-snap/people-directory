@@ -169,6 +169,7 @@
             <?php print render($content['field_research_area']); ?>
           </div>
         <?php endif; ?>
+        <?php print render($content['group_publications']); ?>
         <?php if (!empty($node->field_edir_name)): ?>
           <?php $edir_biography = $node->field_edir_name['und'][0]['entity']->field_biography; ?>
           <?php if (!empty($edir_biography)): ?>
