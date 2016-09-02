@@ -12,6 +12,10 @@
   .views-fluid-grid h3 {
     text-align: left;
     margin-top: 0.25em;
+    margin-bottom: 1em;
+    padding: 0.25em 0.5em;
+    background: #f8f8f8;
+    color: #777;
   }
   .views-fluid-grid-item {
     padding: 0;
@@ -31,7 +35,7 @@
 .page-node.node-type-person {
   .field-name-title-field {
     margin-top: 0.5em;
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
   .field-name-field-photo {
     margin-bottom: 1.5em;
