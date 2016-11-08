@@ -166,7 +166,6 @@
         <?php endif; ?>
         <?php print render($content['field_expertise']); ?>
         <?php print render($content['group_publications']); ?>
-        <?php print render($content['field_website']); ?>
         <?php if (!empty($node->field_edir_name)): ?>
           <?php $edir_biography = $node->field_edir_name['und'][0]['entity']->field_biography; ?>
           <?php if (!empty($edir_biography)): ?>
@@ -175,6 +174,7 @@
             </div>
           <?php endif; ?>
         <?php endif; ?>
+        <?php print render($content['field_website']); ?>
     </div>
 
   <?php if (!empty($content['field_tags']) || !empty($content['links'])): ?>
