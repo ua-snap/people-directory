@@ -73,6 +73,17 @@
  * @ingroup templates
  */
 ?>
+  <div class="<?php print $container_class; ?>">
+    <div class="top-logo">
+      <a href="http://www.iarc.uaf.edu/">
+        <img src="/sites/all/themes/directory/images/iarc_logo.png">
+      </a>
+      <h1>
+        <a href="http://www.iarc.uaf.edu/">International Arctic Research Center</a>
+      </h1>
+    </div>
+  </div>
+
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
   <div class="<?php print $container_class; ?>">
     <div class="navbar-header">
