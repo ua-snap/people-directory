@@ -1,0 +1,3 @@
+[submodule "themes/directory/bootstrap"]
+	path = themes/directory/bootstrap
+	url = https://github.com/twbs/bootstrap-sass.git
