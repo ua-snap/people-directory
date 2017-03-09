@@ -1,14 +1,17 @@
 .top-logo {
   margin: 20px 0;
   overflow: hidden;
+
   img {
     float: left;
     margin-right: 30px;
   }
+
   h1 {
     float: left;
     margin-top: 25px;
   }
+
   a {
     text-decoration: none;
     color: #333333;
@@ -25,13 +28,16 @@
   .page-header {
     display: none;
   }
+
   .ctools-auto-submit-full-form {
     margin-bottom: 2em;
   }
+
   li.views-fluid-grid-item {
     background-color: inherit;
     border: none;
   }
+
   .views-fluid-grid h3 {
     text-align: left;
     margin-top: 0.25em;
@@ -40,18 +46,47 @@
     background: #f8f8f8;
     color: #777;
   }
+
   .views-fluid-grid-item {
     padding: 0;
     margin-right: 1.8em;
     margin-bottom: 1em;
   }
+
   .views-field-title {
     margin-top: 0.5em;
     font-size: 1.2em;
   }
+
   .views-field-field-position-title {
     margin-bottom: 0.5em;
     font-style: italic;
+  }
+
+  #cboxLoadedContent {
+    padding: 20px 10px;
+
+    .directory-name {
+      font-size: 250%;
+      margin-top: -2px;
+    }
+
+    .directory-field {
+      font-size: 150%;
+    }
+  }
+
+  #cboxTitle,
+  #cboxCurrent,
+  #cboxPrevious,
+  #cboxNext,
+  #cboxSlideshow {
+    display: none !important;
+  }
+
+  .vertical-align {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -60,12 +95,15 @@
     margin-top: 0.5em;
     font-size: 1.4em;
   }
+
   .field-name-field-photo {
     margin-bottom: 1.5em;
   }
+
   .field-name-field-research-area {
     margin-bottom: 0.75em;
   }
+
   .group-left {
     font-size: 1.1em;
     margin-top: 1.2em;
@@ -73,12 +111,14 @@
       margin-top: 1em;
     }
   }
+
   .group-right {
     font-size: 1.2em;
     .field-name-field-biography {
       margin-top: 1.2em;
     }
   }
+
   .group-other {
     margin-top: 1em;
   }
