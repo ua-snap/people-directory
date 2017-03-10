@@ -18,7 +18,7 @@
   }
 }
 
-.page-iarc .lobby-menu {
+.lobby-menu {
   display: none;
 }
 
@@ -34,6 +34,10 @@
 
   .web-menu {
     display: none;
+  }
+
+  .lobby-menu {
+    display: block;
   }
 }
 
