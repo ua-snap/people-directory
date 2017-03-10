@@ -39,6 +39,15 @@
   .nav > li > a.lobby-menu {
     display: block;
   }
+
+  .jumbotron {
+    padding: 20px 60px;
+
+    h1 {
+      margin-top: 0;
+      font-size: 50px;
+    }
+  }
 }
 
 .page-iarc,
