@@ -1,3 +1,15 @@
+body.page-lobby {
+
+  ::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+  }
+  /* optional: show position indicator in red */
+  ::-webkit-scrollbar-thumb {
+      background: #FF0000;
+  }
+}
+
 .top-logo {
   margin: 20px 0;
   overflow: hidden;
@@ -29,7 +41,8 @@
 
 .page-lobby-iarc,
 .page-lobby-das,
-.page-lobby-acuasi {
+.page-lobby-acuasi,
+.page-lobby-nws {
   .top-logo {
     display: none;
   }
@@ -55,7 +68,8 @@
 .page-iarc,
 .page-lobby-iarc,
 .page-lobby-das,
-.page-lobby-acuasi {
+.page-lobby-acuasi,
+.page-lobby-nws {
   .page-header {
     display: none;
   }
