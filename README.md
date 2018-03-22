@@ -4,25 +4,51 @@
 
 ### Setup Docker containers
 
-1. Install [Docker](https://www.docker.com/) if you have not already.
+1. Install [Docker](https://www.docker.com/) if you have not already.  You'll also need [compass](http://compass-style.org/install/) to compile the stylesheets.
 
-1. *Not implemented yet* Grab files and database dump from TBD.  You should end up with an equivalent of an SQL dump in this location for the directions below: `~/Downloads/directory_02_06_18-00-02-01.sql`
+1. Download the [current version of Drupal](https://ftp.drupal.org/files/projects/drupal-7.56.tar.gz).
 
-1. Clone this repository and extract the Drupal files into their proper location.  Directory names are placeholders, use whatever is appropriate on your system.
+1. Grab Drupal site files and database (talk to peer to get).  We'll call those `files.bz2` and `database.bz2`.  Unpack the `database.bz2` file to yield `database.sql`.
+
+1. Here's a list of the placeholders we'll be using, and which should each be changed in the instructions below to match your own environment & filenames:
+  * **[~/directory]** - this is where we'll install all this stuff.
+  * **[drupal-7.56.tar.gz]** - file name of downloade Drupal 7 core
+  * **[files.bz2]** - compressed folder with all site files (photos etc)
+  * **[database.sql]** - uncompressed `.sql` database
+
+
+1. Clone this repository and extract the Drupal site files into their proper location.  Directory names are placeholders, use whatever is appropriate on your system.
 
    ```bash
-   mkdir -p ~/docker
-   cd ~/docker
+   mkdir -p [~/directory] # change this folder to where you want the site to go
+   cd [~/directory]
+
+   # Copy the Drupal downloaded file to this location,
+   # then unpack it
+   tar --strip-components=1 -xvzf [drupal-7.56.tar.gz]
+
+   # Clone our custom theme/etc code
+   cd sites && rm -rf all
    git clone https://github.com/ua-snap/people-directory.git
-   [[ Placeholder: if we need it...see step 2.
-   cd people-directory/sites/default
-   tar -jxvf ~/Downloads/TBD
-   ]]
+   mv people-directory all
+
+   # Fetch Bootstrap via submodule inclusion
+   cd all
+   git submodule init && git submodule update
+
+   # Copy the `files.bz2` here, then extract Drupal's content files (photos, documents, etc).
+   cd ../default
+   tar -jxvf [files.bz2]
+
+   # Compile the stylesheets
+   cd ../all/themes/directory
+   compass compile
    ```
 
 1. Download Drupal settings file that reads MySQL host and root password from Docker environment variables.
 
    ```bash
+   cd [~/directory]/sites/default # make sure you're in the right spot
    curl -O 'https://raw.githubusercontent.com/ua-snap/docker-drupal-settings/master/settings.php'
    ```
 
@@ -30,6 +56,7 @@
 
    ```bash
    docker run --name iarc-people-mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
+   # Wait 20 seconds or so
    ```
 
 1. Spawn temporary container that links to MySQL container and creates database.
@@ -41,13 +68,13 @@
 1. Spawn temporary container that links to MySQL container and imports database dump.
 
    ```bash
-   docker run -i --link iarc-people-mysql:mysql --rm mysql sh -c 'exec mysql \-h "$MYSQL_PORT_3306_TCP_ADDR" -P "$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD" drupal7' < ~/Downloads/directory_02_06_18-00-02-01.sql
+   docker run -i --link iarc-people-mysql:mysql --rm mysql sh -c 'exec mysql \-h "$MYSQL_PORT_3306_TCP_ADDR" -P "$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD" drupal7' < [database.sql]
    ```
 
 1. Set up persistent Drupal container that links to MySQL container.
 
    ```bash
-   docker run --name iarc-people-drupal -p 8080:80 --link accap-mysql:mysql -v ~/docker/accap-www:/var/www/html -d drupal:7
+   docker run --name iarc-people-drupal -p 8080:80 --link iarc-people-mysql:mysql -v [~/directory]/sites/default:/var/www/html -d drupal:7
    ```
 
 After everything is done, you should see a valid Drupal instance at `localhost:8080`.
@@ -57,7 +84,7 @@ After everything is done, you should see a valid Drupal instance at `localhost:8
 The Docker containers can be stopped at any time with the following command:
 
 ```bash
-docker stop
+docker stop iarc-people-drupal iarc-people-mysql
 ```
 
 This is useful if you need to start the Docker containers for a different website.
@@ -85,11 +112,11 @@ If something goes wrong with your Docker containers and you would like to go thr
 1. Stop the Drupal and MySQL containers:
 
    ```bash
-   docker stop accap-drupal accap-mysql
+   docker stop iarc-people-drupal iarc-people-mysql
    ```
 
 1. Remove the Drupal and MySQL containers:
 
    ```bash
-   docker rm accap-drupal accap-mysql
+   docker rm iarc-people-drupal iarc-people-mysql
    ```
