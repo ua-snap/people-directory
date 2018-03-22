@@ -74,7 +74,7 @@
 1. Set up persistent Drupal container that links to MySQL container.
 
    ```bash
-   docker run --name iarc-people-drupal -p 8080:80 --link iarc-people-mysql:mysql -v [~/directory]/sites/default:/var/www/html -d drupal:7
+   docker run --name iarc-people-drupal -p 8080:80 --link iarc-people-mysql:mysql -v [~/directory]:/var/www/html -d drupal:7
    ```
 
 After everything is done, you should see a valid Drupal instance at `localhost:8080`.
