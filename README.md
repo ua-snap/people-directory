@@ -79,6 +79,26 @@
 
 After everything is done, you should see a valid Drupal instance at `localhost:8080`.
 
+### Taking a database snapshot
+
+We can share databases during development.  To do so:
+
+ 1. Ensure that the MySQL container (probably `iarc-people-mysql`) is running.
+ 2. Dump the database into a file named `diretory-database-(today's date)`:
+
+  ```bash
+  docker run -i --link iarc-people-mysql:mysql --rm mysql sh -c 'exec mysqldump \-h "$MYSQL_PORT_3306_TCP_ADDR" -P "$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD" drupal7' > directory-database-$(date +%F).sql
+  tar -cvjf directory-database-$(date +%F).sql.bz2 directory-database-$(date +%F).sql
+  ```
+
+To import this database into your local dev environment, download the database then:
+
+```bash
+tar xvjf directory-database-[date].sql.bz2
+docker run -i --link iarc-people-mysql:mysql --rm mysql sh -c 'exec mysql \-h "$MYSQL_PORT_3306_TCP_ADDR" -P "$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD" drupal7' < directory-database-[date].sql
+```
+
+
 ### Stop Docker containers
 
 The Docker containers can be stopped at any time with the following command:
