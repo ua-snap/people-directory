@@ -107,39 +107,39 @@
       <div class="field field-name-field-contact-information field-type-entityreference field-label-hidden">
         <div class="field-items">
           <div class="field-item even">
-            <?php if (!empty($node->field_edir_name)): ?>
-              <?php $edir_phone = $node->field_edir_name['und'][0]['entity']->field_phone; ?>
-              <?php if (!empty($edir_phone)): ?>
+            <?php if (!empty($node)): ?>
+              <?php $person_phone = $node->field_phone; ?>
+              <?php if (!empty($person_phone)): ?>
                 <div class="field field-name-field-phone field-type-text field-label-inline clearfix">
                   <div class="field-label">
                     Phone:&nbsp;
                   </div>
                   <div class="field-items">
-                    <?php print $edir_phone['und'][0]['value']; ?>
+                    <?php print $person_phone['und'][0]['value']; ?>
                   </div>
                 </div>
               <?php endif; ?>
-              <?php $edir_location = $node->field_edir_name['und'][0]['entity']->field_location; ?>
-              <?php if (!empty($edir_location)): ?>
+              <?php $person_location = $node->field_location; ?>
+              <?php if (!empty($person_location)): ?>
               <div class="field field-name-field-location field-type-text field-label-inline clearfix">
                 <div class="field-label">
                   Location:&nbsp;
                 </div>
                 <div class="field-items">
-                  <?php print $edir_location['und'][0]['value']; ?>
+                  <?php print $person_location['und'][0]['value']; ?>
                 </div>
               </div>
               <?php endif; ?>
-              <?php $edir_email = $node->field_edir_name['und'][0]['entity']->field_email; ?>
-              <?php if (!empty($edir_email)): ?>
+              <?php $person_email = $node->field_email; ?>
+              <?php if (!empty($person_email)): ?>
               <div class="field field-name-field-email field-type-email field-label-inline clearfix">
                 <div class="field-label">
                   Email:&nbsp;
                 </div>
                 <div class="field-items">
                   <?php
-                    $email = $node->field_edir_name['und'][0]['entity']->field_email['und'][0]['email'];
-                    print l($email, 'mailto:' . $email);
+                    $email_addr = $person_email['und'][0]['email'];
+                    print l($email_addr, 'mailto:' . $email_addr);
                   ?>
                 </div>
               </div>
@@ -156,25 +156,15 @@
         <div class="field field-name-title-field field-type-text field-label-hidden">
           <?php print render($content['title_field']); ?>
         </div>
-        <?php if (!empty($node->field_edir_name)): ?>
-          <?php $edir_position_title = $node->field_edir_name['und'][0]['entity']->field_position_title; ?>
-          <?php if (!empty($edir_position_title)): ?>
+        <?php if (!empty($node)): ?>
+          <?php $person_position_title = $node->field_position_title; ?>
+          <?php if (!empty($person_position_title)): ?>
             <div class="field field-name-field-position-title field-type-text field-label-hidden">
-              <?php print $edir_position_title['und'][0]['value']; ?>
+              <?php print $person_position_title['und'][0]['value']; ?>
             </div>
           <?php endif; ?>
         <?php endif; ?>
-        <?php print render($content['field_expertise']); ?>
         <?php print render($content['group_publications']); ?>
-        <?php if (!empty($node->field_edir_name)): ?>
-          <?php $edir_biography = $node->field_edir_name['und'][0]['entity']->field_biography; ?>
-          <?php if (!empty($edir_biography)): ?>
-            <div class="field field-name-field-biography field-type-text field-label-hidden">
-              <?php print $edir_biography['und'][0]['value']; ?>
-            </div>
-          <?php endif; ?>
-        <?php endif; ?>
-        <?php print render($content['group_other']); ?>
     </div>
 
   <?php if (!empty($content['field_tags']) || !empty($content['links'])): ?>
