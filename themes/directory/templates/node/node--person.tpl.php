@@ -164,9 +164,7 @@
             </div>
           <?php endif; ?>
         <?php endif; ?>
-        <?php print render($content['field_expertise']); ?>
         <?php print render($content['group_publications']); ?>
-        <?php print render($content['group_other']); ?>
     </div>
 
   <?php if (!empty($content['field_tags']) || !empty($content['links'])): ?>
