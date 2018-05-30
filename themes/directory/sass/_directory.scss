@@ -124,6 +124,7 @@
 }
 
 .page-node.node-type-person {
+    
   .field-name-title-field {
     margin-top: 0.5em;
     font-size: 1.4em;
@@ -131,28 +132,25 @@
 
   .field-name-field-photo {
     margin-bottom: 1.5em;
+      width: auto;
+    
+      img {
+         border: 2px solid #fff;
+          float: left;
+          clear: left;
+          margin: 0 1.5em 1em 0;
+            -webkit-box-shadow: 2px 2px 2px  #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+            -moz-box-shadow: 2px 2px 2px  #ccc;  /* Firefox 3.5 - 3.6 */
+            box-shadow: 2px 2px 2px  #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+      }  
   }
-
-  .field-name-field-research-area {
-    margin-bottom: 0.75em;
-  }
-
-  .group-left {
-    font-size: 1.1em;
-    margin-top: 1.2em;
-    .field-name-field-linkedin {
-      margin-top: 1em;
+    
+    .field-name-field-location {
+        height: 20px;
     }
-  }
-
-  .group-right {
-    font-size: 1.2em;
-    .field-name-field-biography {
-      margin-top: 1.2em;
+    
+    .field-name-field-phone {
+        margin: 0 0 2em 0;
     }
-  }
-
-  .group-other {
-    margin-top: 1em;
-  }
 }
+
