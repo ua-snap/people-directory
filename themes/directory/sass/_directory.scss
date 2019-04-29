@@ -1,3 +1,7 @@
+html, body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .top-logo {
   margin: 20px 0;
   overflow: hidden;
@@ -65,8 +69,39 @@
   .ctools-auto-submit-full-form {
     margin-bottom: 2em;
   }
+    
+    .table-responsive {       
+        border: 1px solid silver;
+        margin: 1em;
+        -webkit-box-shadow: 2px 2px 8px 0px rgba(88,127,227,1);
+-moz-box-shadow: 2px 2px 8px 0px rgba(88,127,227,1);
+box-shadow: 2px 2px 8px 0px rgba(88,127,227,1);
+        padding: 0 1em;
+        font-size: .8em;
+        
+        caption {
+            font-size: 1.75em;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        td.views-field.views-field-field-photo {
+            width: 100px;
+            
+            img {
+                margin: 0;
+                border: 1px solid silver;
+            }
+        }
+        
+        td.views-field.views-field-title {
+        font-weight: bold;
+            font-size: 1.1em;
+    }
+      
+    }
 
-  li.views-fluid-grid-item {
+/*  li.views-fluid-grid-item {
     background-color: inherit;
     border: none;
   }
@@ -94,7 +129,7 @@
   .views-field-field-position-title {
     margin-bottom: 0.5em;
     font-style: italic;
-  }
+  }*/
 
   #cboxLoadedContent {
     padding: 20px 10px;
@@ -121,6 +156,13 @@
     display: flex;
     align-items: center;
   }
+}
+
+.view-grouping-header  {   /*category titles div */
+    color: #000;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 1em 0 0 .5em;
 }
 
 .page-node.node-type-person {
